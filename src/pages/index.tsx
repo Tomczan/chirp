@@ -35,8 +35,8 @@ const PostView = (props: PostWithUser) => {
       <img src={author.profilePicture} className="h-14 w-14 rounded-full" />
       <div className="flex flex-col">
         <div className="flex items-center justify-center gap-1 text-slate-500">
-          <span className="font-bold text-slate-200">{author.username}</span>
-          <span className="">{`@${author.username}`}</span>
+          <span className="font-bold text-slate-200">{author.username!}</span>
+          <span className="">{`@${author.username!}`}</span>
         </div>
         <span>{post.content}</span>
       </div>
