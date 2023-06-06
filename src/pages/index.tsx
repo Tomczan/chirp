@@ -40,11 +40,6 @@ type PostWithUser = RouterOutputs["posts"]["getAll"][number];
 const PostView = (props: PostWithUser) => {
   const { post, author } = props;
 
-  let authorName =
-    author.firstName && author.lastName
-      ? `${author.firstName} ${author.lastName}`
-      : author.username;
-
   return (
     <div
       key={post.id}
@@ -60,7 +55,9 @@ const PostView = (props: PostWithUser) => {
       <div className="flex flex-col ">
         <div className="flex items-center justify-center gap-1 text-slate-500">
           <span className="font-bold text-slate-200 hover:underline">
-            {authorName}
+            {author.firstName && author.lastName
+              ? `${author.firstName} ${author.lastName}`
+              : author.username}
           </span>
           <span className="font-thin">
             {`@${author.username}`}{" "}
