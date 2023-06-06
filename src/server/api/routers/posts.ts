@@ -9,6 +9,8 @@ const filterUserForClient = (user: User) => {
   return {
     id: user.id,
     username: user.username,
+    firstName: user.firstName,
+    lastName: user.lastName,
     profilePicture: user.profileImageUrl,
   };
 };
@@ -44,6 +46,8 @@ export const postsRouter = createTRPCRouter({
           author: {
             ...author,
             username: author.username,
+            firstName: author.firstName,
+            lastName: author.lastName,
           },
         };
       }
