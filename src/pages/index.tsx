@@ -1,7 +1,6 @@
-import { SignIn, SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { SignIn, SignInButton, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 
 import { RouterOutputs, api } from "~/utils/api";
 
@@ -23,7 +22,7 @@ const CreatePostWizard = () => {
   const { mutate, isLoading: isPosting } = api.posts.create.useMutation({
     onSuccess: () => {
       setInput("");
-      ctx.posts.getAll.invalidate();
+      void ctx.posts.getAll.invalidate();
     },
   });
 
