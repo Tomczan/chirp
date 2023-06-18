@@ -53,7 +53,7 @@ const PostView = (props: PostWithUser) => {
         height={56}
       />
       <div className="flex flex-col ">
-        <div className="flex items-center justify-center gap-1 text-slate-500">
+        <div className="flex gap-1 text-slate-500">
           <span className="font-bold text-slate-200 hover:underline">
             {author.firstName && author.lastName
               ? `${author.firstName} ${author.lastName}`
