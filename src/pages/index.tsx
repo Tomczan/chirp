@@ -10,6 +10,7 @@ import Image from "next/image";
 import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 dayjs.extend(relativeTime);
 
@@ -99,15 +100,19 @@ const PostView = (props: PostWithUser) => {
       />
       <div className="flex flex-col ">
         <div className="flex gap-1 text-slate-500">
-          <span className="font-bold text-slate-200 hover:underline">
-            {author.firstName && author.lastName
-              ? `${author.firstName} ${author.lastName}`
-              : author.username}
-          </span>
-          <span className="font-thin">
-            {`@${author.username}`}{" "}
-            <span>{` · ${dayjs(post.createdAt).fromNow()}`}</span>
-          </span>
+          <Link href={`/@${author.username}`}>
+            <span className="font-bold text-slate-200 hover:underline">
+              {author.firstName && author.lastName
+                ? `${author.firstName} ${author.lastName}`
+                : author.username}
+            </span>
+          </Link>
+          <Link href={`/post/${post.id}`}>
+            <span className="font-thin">
+              {`@${author.username}`}{" "}
+              <span>{` · ${dayjs(post.createdAt).fromNow()}`}</span>
+            </span>
+          </Link>
         </div>
         <span className="text-2xl">{post.content}</span>
       </div>
